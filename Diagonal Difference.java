@@ -19,25 +19,19 @@ class Result {
      * The function accepts 2D_INTEGER_ARRAY arr as parameter.
      */
 
-    public static int diagonalDifference(List<List<Integer>> arr) {
-        int sum = 0;
-        int count= arr.size()-1;
+     public static int diagonalDifference(List<List<Integer>> arr) {
+        int sum1 = 0;
         int sum2 = 0;
-        for (int i = 0; i < arr.size(); i++) {
-            sum=sum+arr.get(i).get(i);
-            for (int j = arr.size()-1; j >= 0; j--) {
-                if (count==j) {
-                    sum2= sum2+arr.get(j).get(i);
-                }
-
-            }
-           
-            count--;
+        int n = arr.size();
+        
+        for (int i = 0; i < n; i++) {
+            sum1 += arr.get(i).get(i);        
+            sum2 += arr.get(i).get(n - 1 - i); 
         }
         
-        return Math.abs(sum-sum2);
-
+        return Math.abs(sum1 - sum2);
     }
+    
 
 }
 
